@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head></h:head>
+<body>
+	<h:form>
+
+
+		<h:selectOneMenu id="idPays" value="#{ajaxBean.pays}">
+			<f:selectItem itemValue="#{null}" itemLabel="Select..." />
+			<f:selectItems value="#{ajaxBean.countries}"/>
+			<f:ajax render="idVille" listener="#{ajaxBean.update}" event="change"></f:ajax>
+		</h:selectOneMenu>
+		
+		<h:outputText id="p" value="#{ajaxBean.pays}"></h:outputText>
+		<h:selectOneMenu  id="idVille" value="ajaxBean.ville">
+			<f:selectItem itemValue="#{null}" itemLabel="Select..." />
+			<f:selectItems value="#{ajaxBean.villes}"/>
+		</h:selectOneMenu>
+
+
+	</h:form>
+</body>
+</html>
